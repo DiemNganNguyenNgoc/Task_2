@@ -1,0 +1,59 @@
+/* Style the overall carousel container */
+.image-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;  /* Limit the width of the carousel */
+    margin: 0 auto;  /* Center the carousel */
+  }
+  
+  /* Style for each carousel item */
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Space between items */
+  }
+  
+  /* Style for the images */
+  .carousel-image {
+    width: 159.2px;  /* Fixed width for images */
+    height: 396px;  /* Fixed height for images */
+    object-fit: cover;  /* Ensure the images cover the container without distortion */
+    margin: 10px;  /* Space between images */
+  }
+  
+  /* Custom styling for next and previous arrows */
+  .next-arrow,
+  .prev-arrow {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;  /* Center arrows vertically */
+    transform: translateY(-50%);  /* Adjust the vertical position */
+  }
+  
+  .next-arrow {
+    right: 10px;  /* Position the "Next" arrow to the right */
+  }
+  
+  .prev-arrow {
+    left: 10px;  /* Position the "Prev" arrow to the left */
+  }
+  
+  .next-arrow:hover,
+  .prev-arrow:hover {
+    background-color: #0056b3;
+  }
+  /* Adjust the slick-list to make it smaller */
+.slick-list {
+    width: 80%;  /* Adjust the width to 80% of the parent container */
+    height: auto;  /* Adjust the height or set a fixed height */
+    overflow: hidden;  /* Hide overflow content */
+    margin: 0 auto;  /* Center slick-list within the container */
+  }

@@ -1,0 +1,110 @@
+/* Tổng container */
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/* Slick track */
+.slick-track {
+    display: flex;
+    justify-content: flex-start;
+    height: auto;
+}
+
+/* Slick slide */
+.slick-slide {
+    display: inline-block;
+    justify-content: center; /* Khoảng cách giữa các slide */
+}
+
+/* Slick slider */
+.slick-slider {
+    max-width: 1200px;
+    position: relative;
+}
+
+/* Mỗi item trong slider */
+.slider-item {
+    display: flex;
+}
+
+/* Hình ảnh trong slider */
+.slider-image {
+    width: 160px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px; /* Bo tròn góc ảnh */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 16px;
+}
+
+/* Đảm bảo nút luôn nằm trong slider */
+.slider-container .slick-prev,
+.slider-container .slick-next {
+    width: 60px; /* Tăng kích thước nút */
+    height: 60px; /* Tăng kích thước nút */
+    border-radius: 50%; /* Giữ dạng tròn cho nút */
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: none;
+}
+
+/* Biểu tượng trong nút */
+.slick-prev::before,
+.slick-next::before {
+    font-size: 36px; /* Tăng kích thước biểu tượng */
+    content: ''; /* Xóa nội dung mặc định của nút */
+}
+
+/* Biểu tượng mũi tên cho nút prev và next */
+.slick-prev::before {
+    content: '←'; /* Mũi tên trái */
+}
+
+.slick-next::before {
+    content: '→'; /* Mũi tên phải */
+}
+
+/* Nút prev */
+.slider-container .slick-prev {
+    left: 10px; /* Điều chỉnh lại vị trí nút prev */
+}
+
+/* Nút next */
+.slider-container .slick-next {
+    right: 10px;
+}
+
+/* Responsive thiết bị nhỏ */
+@media (max-width: 1024px) {
+    .slider-image {
+        height: 300px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        padding: 10px;
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 767px) {
+    .slider-image {
+        height: 200px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        padding: 8px;
+        font-size: 18px;
+        width: 80px;
+        height: 80px;
+    }
+}
