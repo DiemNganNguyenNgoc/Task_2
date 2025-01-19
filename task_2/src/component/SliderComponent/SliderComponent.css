@@ -1,26 +1,25 @@
-/* Tổng container */
 .slider-container {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    
+    padding: 20px 0;
 }
 
-/* Slick track */
+
 .slick-track {
     display: flex;
     justify-content: flex-start;
     height: auto;
 }
 
-/* Slick slide */
+
 .slick-slide {
     display: inline-block;
-    justify-content: center; /* Khoảng cách giữa các slide */
+    justify-content: center ; 
 }
 
-/* Slick slider */
+
 .slick-slider {
     max-width: 1200px;
     position: relative;
@@ -29,6 +28,10 @@
 /* Mỗi item trong slider */
 .slider-item {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
 }
 
 /* Hình ảnh trong slider */
@@ -36,52 +39,32 @@
     width: 160px;
     height: auto;
     object-fit: cover;
-    border-radius: 16px; /* Bo tròn góc ảnh */
+    border-radius: 16px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 16px;
 }
 
 /* Đảm bảo nút luôn nằm trong slider */
-.slider-container .slick-prev,
-.slider-container .slick-next {
-    width: 60px; /* Tăng kích thước nút */
-    height: 60px; /* Tăng kích thước nút */
-    border-radius: 50%; /* Giữ dạng tròn cho nút */
+.slider-container .slick-prev {
+    left: 10px;
     z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: none;
+}
+
+.slider-container .slick-next {
+    right: 10px;
+    z-index: 100;
+    background-color: rgb(149, 94, 27);
 }
 
 /* Biểu tượng trong nút */
-.slick-prev::before,
-.slick-next::before {
-    font-size: 36px; /* Tăng kích thước biểu tượng */
-    content: ''; /* Xóa nội dung mặc định của nút */
+.slick-arrow::before {
+    font-family: "slick";
+    font-size: 34px;
+    background-color: #c92a2a;
+   
 }
 
-/* Biểu tượng mũi tên cho nút prev và next */
-.slick-prev::before {
-    content: '←'; /* Mũi tên trái */
-}
 
-.slick-next::before {
-    content: '→'; /* Mũi tên phải */
-}
-
-/* Nút prev */
-.slider-container .slick-prev {
-    left: 10px; /* Điều chỉnh lại vị trí nút prev */
-}
-
-/* Nút next */
-.slider-container .slick-next {
-    right: 10px;
-}
-
-/* Responsive thiết bị nhỏ */
 @media (max-width: 1024px) {
     .slider-image {
         height: 300px;
@@ -90,8 +73,6 @@
     .slick-prev,
     .slick-next {
         padding: 10px;
-        width: 90px;
-        height: 90px;
     }
 }
 
@@ -103,8 +84,6 @@
     .slick-prev,
     .slick-next {
         padding: 8px;
-        font-size: 18px;
-        width: 80px;
-        height: 80px;
+        font-size: 14px;
     }
 }
