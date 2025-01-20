@@ -1,5 +1,5 @@
 import React from "react";
-import "./Task2.css";
+import './TaskTwoPage.css'
 import SliderComponent from "./component/SliderComponent/SliderComponent";
 import image1 from "./image/carousel1.png";
 import image2 from "./image/carousel2.png";
@@ -10,7 +10,7 @@ import image6 from "./image/carousel6.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Task2 = () => {
+const TaskTowPage = () => {
   const images = [image1, image2, image3, image4, image5, image6];
 
   return (
@@ -34,4 +34,4 @@ const Task2 = () => {
   );
 };
 
-export default Task2;
+export default TaskTowPage;

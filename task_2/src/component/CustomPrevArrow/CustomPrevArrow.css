@@ -1,0 +1,23 @@
+/* Nút điều hướng trong slider */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 16px;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.custom-arrow:hover {
+    cursor: pointer;
+}
+
+.custom-prev {
+    right: 5px;
+}
