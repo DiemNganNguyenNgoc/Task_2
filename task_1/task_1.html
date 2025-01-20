@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lọc Dữ Liệu Excel và Tạo File Mới</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1>Lọc Dữ Liệu Excel</h1>
+    <button id="download">Tải File Mới</button>
+    <div id="result">Đang tải dữ liệu...</div>
+
+    <script>
+        const url = 'https://go.microsoft.com/fwlink/?LinkID=521962';
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+        fetch(proxyUrl + url)
+            .then(response => response.blob()) 
+            .then(blob => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+
+                    const sheetName = workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+
+                    let jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                    // Chuẩn hóa tên cột
+                    const normalizedData = jsonData.map(row => {
+                        const normalizedRow = {};
+                        for (let key in row) {
+                            const normalizedKey = key.trim(); // Xóa khoảng trắng thừa
+                            normalizedRow[normalizedKey] = row[key];
+                        }
+                        return normalizedRow;
+                    });
+
+                    // Lọc các hàng với "Sales" > 50.000
+                    const filteredData = normalizedData.filter(row => row["Sales"] > 50000);
+
+                    // Tạo file Excel mới từ dữ liệu đã lọc
+                    const newSheet = XLSX.utils.json_to_sheet(filteredData);
+                    const newWorkbook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(newWorkbook, newSheet, 'FilteredData');
+
+                    // Thêm sự kiện tải xuống
+                    document.getElementById('download').addEventListener('click', () => {
+                        XLSX.writeFile(newWorkbook, 'Filtered_Sales_Data.xlsx');
+                    });
+
+                    // Hiển thị thông báo kết quả
+                    document.getElementById('result').textContent = 
+                        `Đã lọc ${filteredData.length} hàng. Nhấn "Tải File Mới" để tải xuống.`;
+                };
+
+                reader.readAsArrayBuffer(blob);
+            })
+            .catch(error => {
+                console.error('Có lỗi xảy ra khi lấy dữ liệu:', error);
+                document.getElementById('result').textContent = 'Có lỗi xảy ra khi lấy dữ liệu.';
+            });
+    </script>
+</body>
+</html>
