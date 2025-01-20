@@ -18,7 +18,7 @@ const Task2 = () => {
       <div className="format section-holder">
         <div className="format top-holder">
           <img
-            className="logo"
+            className="icon"
             src="https://shub.edu.vn/_next/image?url=%2Fimages%2Flanding%2Fver3%2Fimage-section%2Fnetworking.gif&w=64&q=75"
             alt="Networking"
           />
